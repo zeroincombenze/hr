@@ -1,8 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-/.venv
-/.pytest_cache
 
 # C extensions
 *.so
@@ -22,7 +20,6 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-*.eggs
 
 # Installer logs
 pip-log.txt
@@ -41,19 +38,6 @@ coverage.xml
 
 # Pycharm
 .idea
-
-# Eclipse
-.settings
-
-# Visual Studio cache/options directory
-.vs/
-.vscode
-
-# OSX Files
-.DS_Store
-
-# Django stuff:
-*.log
 
 # Mr Developer
 .mr.developer.cfg

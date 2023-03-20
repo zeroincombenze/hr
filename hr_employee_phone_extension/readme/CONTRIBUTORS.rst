@@ -5,5 +5,3 @@
 * Denis Leemann <denis.leemann@camptocamp.com>
 * Serpent Consulting Services Pvt. Ltd.<support@serpentcs.com>
 * Anand Kansagra <kansagraanand@hotmail.com>
-* Saran Lim. <saranl@ecosoft.co.th>
-* aphon61bank <aphon61bank@gmail.com>

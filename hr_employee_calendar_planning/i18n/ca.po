@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-03-21 14:17+0000\n"
+"PO-Revision-Date: 2022-03-21 14:18+0000\n"
 "Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -15,18 +15,6 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.3.2\n"
-
-#. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
-#, python-format
-msgid "%s is used in %s employee(s) related to another company."
-msgstr "%s s'utilitza en %s empleats relacionats amb una altra empresa."
-
-#. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
-#, python-format
-msgid "%s is used in %s employee(s). You should change them first."
-msgstr "%s s'utilitza en %s empleat(s). Primer els hauries de canviar."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
@@ -39,7 +27,7 @@ msgid "Auto Generate"
 msgstr "Generació automàtica"
 
 #. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:22
 #, python-format
 msgid "Auto generated calendar for employee"
 msgstr "Horari autogenerat per a l'empleat"
@@ -48,11 +36,6 @@ msgstr "Horari autogenerat per a l'empleat"
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
 msgid "Calendar planning"
 msgstr "Pla d'horari"
-
-#. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__company_id
-msgid "Company"
-msgstr "Companyia"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_uid
@@ -65,14 +48,12 @@ msgid "Created on"
 msgstr "Creat el"
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.constraint,message:hr_employee_calendar_planning.constraint_hr_employee_calendar_date_consistency
+#: sql_constraint:hr.employee.calendar:0
 msgid "Date end should be higher than date start"
 msgstr "La data de fi ha de ser més gran que la d'inici"
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr "Nom a mostrar"
 
@@ -93,25 +74,12 @@ msgid "End Date"
 msgstr "Data de finalització"
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__active
-msgid ""
-"If the active field is set to false, it will allow you to hide the Working "
-"Time without removing it."
-msgstr ""
-"Si el camp actiu està definit com a fals, us permetrà ocultar el temps de "
-"treball sense eliminar-lo."
-
-#. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar____last_update
 msgid "Last Modified on"
 msgstr "Darrera modificació el"
 
@@ -139,9 +107,3 @@ msgstr "Data d'Inici"
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
 msgid "Working Time"
 msgstr "Temps de treball"
-
-#. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
-#, python-format
-msgid "You can not create employees without any calendar."
-msgstr ""

@@ -3,12 +3,14 @@
 {
     "name": "HR Holidays Settings",
     "summary": "Enables Settings Form for HR Holidays.",
-    "version": "14.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
-    "author": "ForgeFlow, Odoo Community Association (OCA)",
+    "author": "Eficent, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["hr_holidays"],
-    "data": ["views/res_config_settings.xml"],
+    "data": [
+        "views/res_config_settings.xml"
+    ],
     "installable": True,
 }

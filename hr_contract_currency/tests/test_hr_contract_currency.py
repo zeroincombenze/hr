@@ -7,37 +7,53 @@ from odoo.tests import common
 
 
 class TestHrContractCurrency(common.TransactionCase):
+
     def setUp(self):
         super().setUp()
 
         self.today = fields.Date.today()
-        self.Contract = self.env["hr.contract"]
+        self.now = fields.Datetime.now()
+        self.Employee = self.env['hr.employee']
+        self.SudoEmployee = self.Employee.sudo()
+        self.Contract = self.env['hr.contract']
+        self.SudoContract = self.Contract.sudo()
 
     def test_1(self):
-        contract = self.Contract.create(
-            {
-                "name": "Contract #1",
-                "wage": 5000.0,
-                "date_start": self.today,
-                "date_end": self.today,
-            }
-        )
+        employee = self.SudoEmployee.create({
+            'name': 'Employee #1',
+            'contract_ids': [
+                (0, 0, {
+                    'name': 'Employee #1 Contract #1',
+                    'wage': 5000.0,
+                    'date_start': self.today,
+                    'date_end': self.today,
+                }),
+            ],
+        })
 
-        self.assertEqual(contract.currency_id, self.env.company.currency_id)
+        self.assertEqual(
+            employee.contract_id.currency_id,
+            self.env.user.company_id.currency_id
+        )
 
     def test_2(self):
-        my_company = self.env["res.company"].create(
-            {"name": "My Company", "currency_id": self.env.ref("base.CHF").id}
-        )
-        contract = self.Contract.create(
-            {
-                "name": "Contract #2",
-                "wage": 1000.0,
-                "date_start": self.today,
-                "date_end": self.today,
-                "company_id": my_company.id,
-            }
-        )
+        my_company = self.env['res.company'].create({
+            'name': 'My Company',
+            'currency_id': self.env.ref("base.CHF").id,
+        })
+        contract = self.Contract.create({
+            'name': 'Contract #2',
+            'wage': 1000.0,
+            'date_start': self.today,
+            'date_end': self.today,
+            'company_id': my_company.id,
+        })
 
-        self.assertEqual(contract.currency_id, self.env.ref("base.CHF"))
-        self.assertNotEqual(contract.currency_id, self.env.company.currency_id)
+        self.assertEqual(
+            contract.currency_id,
+            self.env.ref("base.CHF")
+        )
+        self.assertNotEqual(
+            contract.currency_id,
+            self.env.user.company_id.currency_id
+        )

@@ -8,61 +8,66 @@ from odoo import api, fields, models
 
 class HrEmployeeMedicalExamination(models.Model):
 
-    _name = "hr.employee.medical.examination"
-    _description = "Hr Employee Medical Examination"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _name = 'hr.employee.medical.examination'
+    _description = 'Hr Employee Medical Examination'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(
         required=True,
-        tracking=True,
+        track_visibility='onchange',
     )
 
     state = fields.Selection(
         selection=[
-            ("pending", "Pending"),
-            ("done", "Done"),
-            ("cancelled", "Cancelled"),
+            ('pending', 'Pending'),
+            ('done', 'Done'),
+            ('cancelled', 'Cancelled'),
             ("rejected", "Rejected"),
-        ],
-        default="pending",
-        readonly=True,
-        tracking=True,
+        ], default='pending', readonly=True,
+        track_visibility='onchange',
     )
 
     date = fields.Date(
-        string="Examination Date",
-        tracking=True,
+        string='Examination Date',
+        track_visibility='onchange',
     )
     result = fields.Selection(
-        selection=[("failed", "Failed"), ("passed", "Passed")],
-        tracking=True,
+        selection=[
+            ('failed', 'Failed'),
+            ('passed', 'Passed'),
+        ],
+        track_visibility='onchange',
     )
 
     employee_id = fields.Many2one(
-        "hr.employee",
-        string="Employee",
-        required=True,
-        tracking=True,
+        'hr.employee', string='Employee', required=True,
+        track_visibility='onchange',
     )
 
-    year = fields.Char("Year", default=lambda r: str(datetime.date.today().year))
+    year = fields.Char(
+        "Year", default=lambda r: str(datetime.date.today().year),
+    )
 
-    note = fields.Text(tracking=True)
+    note = fields.Text(track_visibility='onchange')
 
-    @api.onchange("date")
+    @api.onchange('date')
     def _onchange_date(self):
         for record in self:
             if record.date:
                 record.year = str(record.date.year)
 
+    @api.multi
     def back_to_pending(self):
         self.write({"state": "pending"})
 
+    @api.multi
     def to_done(self):
         self.write({"state": "done"})
 
+    @api.multi
     def to_cancelled(self):
         self.write({"state": "cancelled"})
 
+    @api.multi
     def to_rejected(self):
         self.write({"state": "rejected"})
