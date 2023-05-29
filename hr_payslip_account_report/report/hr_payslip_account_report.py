@@ -4,7 +4,7 @@
 from openerp.osv import fields, osv, orm
 from openerp.tools.translate import _
 from openerp.tools.sql import drop_view_if_exists
-import openerp.addons.decimal_precision as dp
+import decimal_precision as dp
 
 
 class HrPayslipAccountReport(orm.Model):

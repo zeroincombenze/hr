@@ -22,7 +22,7 @@
 from pytz import timezone, utc
 from datetime import datetime, timedelta
 
-import openerp.addons.decimal_precision as dp
+import decimal_precision as dp
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DATETIMEFORMAT
 from openerp.tools.translate import _

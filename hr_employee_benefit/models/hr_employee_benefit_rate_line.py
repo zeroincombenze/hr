@@ -22,7 +22,7 @@
 from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from .hr_employee_benefit_rate import get_amount_types
-import openerp.addons.decimal_precision as dp
+import decimal_precision as dp
 import time
 
 
