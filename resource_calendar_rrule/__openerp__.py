@@ -22,4 +22,5 @@
     "qweb": [
         "static/src/xml/resource_calendar_rrule.xml",
     ],
+    "installable": False,
 }
